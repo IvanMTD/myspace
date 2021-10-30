@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- HEAD -->
+<head>
+    <title>Lesson</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
+    <link href="../static/css/lesson-details.css" th:href="@{/css/lesson-details.css}" rel="stylesheet" />
+</head>
+
+<body>
+<!--HEADER-->
+<header th:insert="blocks/header :: header"></header>
+<!--NAVIGATION-->
+<nav th:insert="blocks/nav :: nav"></nav>
+
+<!--CONTENT-->
+<article class="detailsArticle">
+    <section class="detailsSection">
+        <div th:each="el:${lesson}" class="lessonDetails">
+            <p th:text="${el.full_text}" class="lessonContent"></p>
+            <p><b>Просмотры: </b><span th:text="${el.views}"></span></p>
+            <a th:href="'/lesson/' + ${el.id} + '/edit'" class="updateHref">редактировать</a><br>
+            <form th:action="'/lesson/' + ${el.id} + '/remove'" method="post">
+                <button type="submit" class="dellButton">Удалить</button>
+            </form>
+        </div>
+    </section>
+</article>
+
+<!--FOOTER-->
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+.addArticle{
+    display: block;
+}
+
+.addSection{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-left: 10px solid LightGray;
+}
+
+.addDiv{
+    padding: 20px;
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+.titleInput{
+    width: 100%;
+    display: list-item;
+}
+
+.anonsInput{
+    width: 100%;
+    display: list-item;
+}
+
+.textAreaInput{
+    width: 100%;
+    height: 600px;
+    display: list-item;
+    resize: none;
+}

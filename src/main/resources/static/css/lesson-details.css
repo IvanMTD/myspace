@@ -1,0 +1,24 @@
+.detailsArticle{
+
+}
+
+.detailsSection{
+
+}
+
+.lessonDetails{
+    width: 50%;
+    margin: auto;
+}
+
+.lessonContent{
+    white-space: pre-wrap;
+}
+
+.updateHref{
+    display: table;
+}
+
+.dellButton{
+    display: table;
+}
