@@ -1,1 +1,1 @@
-web: java -jar out/artifacts/myspace_jar/myspace.jar
+web: java -jar target/myspace-1.0.jar
