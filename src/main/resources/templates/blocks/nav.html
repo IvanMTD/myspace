@@ -1,5 +1,5 @@
 <div th:fragment="nav">
     <ul class="menu">
-        <li th:each="el:${posts}"><a th:href="'/lesson/' + ${el.id}"><span th:text="${el.title}"></span></a></li>
+        <li th:each="el:${lesson}"><a th:href="'/lesson/' + ${el.id}"><span th:text="${el.title}"></span></a></li>
     </ul>
 </div>
