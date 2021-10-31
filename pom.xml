@@ -8,13 +8,17 @@
 		<version>2.6.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ru.myspace</groupId>
+	<groupId>ru.morgan</groupId>
 	<artifactId>myspace</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>myspace</name>
 	<description>myspace site</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,6 +56,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+						<configuration>
+							<additionalProperties>
+								<encoding.source>${project.build.sourceEncoding}</encoding.source>
+								<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+								<java.source>${maven.compiler.source}</java.source>
+								<java.target>${maven.compiler.target}</java.target>
+							</additionalProperties>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
