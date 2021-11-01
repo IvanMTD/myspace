@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <!-- HEAD -->
 <head>
-    <title>Lesson</title>
+    <title th:text="${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
-    <link href="../static/css/lesson-details.css" th:href="@{/css/lesson-details.css}" rel="stylesheet" />
+    <link href="../static/css/post-details.css" th:href="@{/css/post-details.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -17,11 +17,11 @@
 <!--CONTENT-->
 <article class="detailsArticle">
     <section class="detailsSection">
-        <div th:each="el:${lesson}" class="lessonDetails">
-            <p th:text="${el.full_text}" class="lessonContent"></p>
+        <div th:each="el:${post}" class="postDetails">
+            <p th:text="${el.full_text}" class="postContent"></p>
             <p><b>Просмотры: </b><span th:text="${el.views}"></span></p>
-            <a th:href="'/lesson/' + ${el.id} + '/edit'" class="updateHref">редактировать</a><br>
-            <form th:action="'/lesson/' + ${el.id} + '/remove'" method="post">
+            <a th:href="'/post/' + ${el.id} + '/edit'" class="updateHref">редактировать</a><br>
+            <form th:action="'/post/' + ${el.id} + '/remove'" method="post">
                 <button type="submit" class="dellButton">Удалить</button>
             </form>
         </div>

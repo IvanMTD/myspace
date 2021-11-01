@@ -6,12 +6,12 @@
 
 }
 
-.lessonDetails{
+.postDetails{
     width: 50%;
     margin: auto;
 }
 
-.lessonContent{
+.postContent{
     white-space: pre-wrap;
 }
 

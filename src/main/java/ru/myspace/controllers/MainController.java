@@ -21,62 +21,68 @@ public class MainController {
 
     @GetMapping("/") // отслеживаемая ссылка
     public String home(Model model) {
-        Iterable<Post> lessons = postRepository.findAll();
-        model.addAttribute("lesson", lessons);
+        Iterable<Post> posts = postRepository.findAll();
+        model.addAttribute("post", posts);
+        model.addAttribute("title","MySpace");
         return "home";
     }
 
-    @GetMapping("/lesson/add") // отслеживаемая ссылка
-    public String lessonAdd(Model model) {
-        return "lesson-add";
+    @GetMapping("/post/add")
+    public String postAdd(Model model) {
+        model.addAttribute("title","Добавить пост");
+        return "post-add";
     }
 
-    @PostMapping("/lesson/add")
-    public String lessonPost(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
-        Post lesson = new Post(title,anons,full_text);
-        postRepository.save(lesson);
+    @PostMapping("/post/add")
+    public String setPost(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
+        Post post = new Post(title,anons,full_text);
+        postRepository.save(post);
         return "redirect:/";
     }
 
-    @GetMapping("/lesson/{id}") // отслеживаемая ссылка
-    public String lessonDetail(@PathVariable(value = "id") long id, Model model){
+    @GetMapping("/post/{id}")
+    public String postDetail(@PathVariable(value = "id") long id, Model model){
         if(!postRepository.existsById(id)){
             return "redirect:/";
         }
-        Optional<Post> lesson = postRepository.findById(id);
+        Optional<Post> post = postRepository.findById(id);
+        Post postInfo = postRepository.findById(id).orElseThrow();
         ArrayList<Post> res = new ArrayList();
-        lesson.ifPresent(res::add);
-        model.addAttribute("lesson",res);
-        return "lesson-details";
+        post.ifPresent(res::add);
+        model.addAttribute("post",res);
+        model.addAttribute("title",postInfo.getTitle());
+        return "post-details";
     }
 
-    @GetMapping("/lesson/{id}/edit") // отслеживаемая ссылка
-    public String lessonEdit(@PathVariable(value = "id") long id, Model model){
+    @GetMapping("/post/{id}/edit")
+    public String postEdit(@PathVariable(value = "id") long id, Model model){
         if(!postRepository.existsById(id)){
             return "redirect:/";
         }
-        Optional<Post> lesson = postRepository.findById(id);
+        Optional<Post> post = postRepository.findById(id);
+        Post postInfo = postRepository.findById(id).orElseThrow();
         ArrayList<Post> res = new ArrayList();
-        lesson.ifPresent(res::add);
-        model.addAttribute("lesson",res);
-        return "lesson-edit";
+        post.ifPresent(res::add);
+        model.addAttribute("post",res);
+        model.addAttribute("title",postInfo.getTitle());
+        return "post-edit";
     }
 
-    @PostMapping("/lesson/{id}/edit") // отслеживаемая ссылка
-    public String lessonUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
-        Post lesson = postRepository.findById(id).orElseThrow();
-        lesson.setTitle(title);
-        lesson.setAnons(anons);
-        lesson.setFull_text(full_text);
-        postRepository.save(lesson);
+    @PostMapping("/post/{id}/edit")
+    public String postUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
+        Post post = postRepository.findById(id).orElseThrow();
+        post.setTitle(title);
+        post.setAnons(anons);
+        post.setFull_text(full_text);
+        postRepository.save(post);
 
-        return "redirect:/lesson/{id}";
+        return "redirect:/post/{id}";
     }
 
-    @PostMapping("/lesson/{id}/remove") // отслеживаемая ссылка
-    public String lessonRemove(@PathVariable(value = "id") long id, Model model){
-        Post lesson = postRepository.findById(id).orElseThrow();
-        postRepository.delete(lesson);
+    @PostMapping("/post/{id}/remove")
+    public String postRemove(@PathVariable(value = "id") long id, Model model){
+        Post post = postRepository.findById(id).orElseThrow();
+        postRepository.delete(post);
         return "redirect:/";
     }
 }

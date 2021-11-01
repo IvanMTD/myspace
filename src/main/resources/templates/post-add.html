@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- HEAD -->
+    <head>
+        <title th:text="${title}"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
+        <link href="../static/css/post-add.css" th:href="@{/css/post-add.css}" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!--HEADER-->
+        <header th:insert="blocks/header :: header"></header>
+        <!--NAVIGATION-->
+        <nav th:insert="blocks/nav :: nav"></nav>
+
+        <!--CONTENT-->
+        <article class="addArticle">
+            <section class="addSection">
+                <form action="/post/add" method="post">
+                    <div class="addDiv">
+                        <h1>Добавление поста</h1><br>
+                        <input type="text" name="title" placeholder="Введите название поста" class="titleInput"><br>
+                        <input type="text" name="anons" placeholder="Введите анонс поста" class="anonsInput"><br>
+                        <textarea name="full_text" placeholder="Введите полный текст поста" class="textAreaInput"></textarea><br>
+                        <button type="submit" class="addButton">Добавить пост</button><br>
+                    </div>
+                </form>
+            </section>
+        </article>
+
+        <!--FOOTER-->
+        <footer th:insert="blocks/footer :: footer"></footer>
+    </body>
+</html>

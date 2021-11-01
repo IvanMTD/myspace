@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <!-- HEAD -->
     <head>
-        <title>MySpace</title>
+        <title th:text="${title}"></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
         <script type="text/javascript" th:src="@{/js/home.js}"></script>
@@ -17,10 +17,10 @@
         <!--CONTENT-->
         <article class="homeArticle">
             <section class="homeSection">
-                <div th:each="el:${lesson}" class="lesson">
-                    <h3 th:text="${el.title}" class="l_title"></h3>
-                    <p th:text="${el.anons}" class="l_body"></p>
-                    <a th:href="'/lesson/' + ${el.id}" class="l_link">подробнее</a>
+                <div th:each="el:${post}" class="post">
+                    <h3 th:text="${el.title}" class="post_title"></h3>
+                    <p th:text="${el.anons}" class="post_body"></p>
+                    <a th:href="'/post/' + ${el.id}" class="post_link">подробнее</a>
                 </div>
             </section>
         </article>

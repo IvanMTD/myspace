@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <!-- HEAD -->
     <head>
-        <title>LessonEdit</title>
+        <title th:text="${title}"></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
-        <link href="../static/css/lesson-edit.css" th:href="@{/css/lesson-edit.css}" rel="stylesheet" />
+        <link href="../static/css/post-edit.css" th:href="@{/css/post-edit.css}" rel="stylesheet" />
     </head>
 
     <body>
@@ -18,11 +18,11 @@
         <article class="editArticle">
             <section class="editSection">
                 <form method="post">
-                    <div th:each="el:${lesson}" class="editDiv">
-                        <h1>Редактирование урока</h1><br>
-                        <input type="text" th:value="${el.title}" name="title" placeholder="Название урока" class="editTitleInput"><br>
-                        <input type="text" th:value="${el.anons}" name="anons" placeholder="Анонс урока" class="editAnonsInput"><br>
-                        <textarea name="full_text" placeholder="Текст урока" class="editTextAreaInput" th:text="${el.full_text}"/><br>
+                    <div th:each="el:${post}" class="editDiv">
+                        <h1>Редактирование поста</h1><br>
+                        <input type="text" th:value="${el.title}" name="title" placeholder="Название поста" class="editTitleInput"><br>
+                        <input type="text" th:value="${el.anons}" name="anons" placeholder="Анонс поста" class="editAnonsInput"><br>
+                        <textarea name="full_text" placeholder="Текст поста" class="editTextAreaInput" th:text="${el.full_text}"/><br>
                         <button type="submit" class="updateButton">Обновить</button><br>
                     </div>
                 </form>
