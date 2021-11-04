@@ -60,19 +60,17 @@ nav {
 .post_title {
     display: block;
     margin: auto;
-    height: 10%;
 }
 
 .post_body {
     display: block;
     margin: auto;
-    height: 79%;
+    height: 80%;
 }
 
 .post_link {
     display: block;
     margin: auto;
-    height: 10%;
 }
 
 footer {
