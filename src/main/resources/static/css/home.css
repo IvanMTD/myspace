@@ -57,19 +57,19 @@ nav {
     background-color: LightGray;
 }
 
-.post_title{
+.post_title {
     display: block;
     margin: auto;
     height: 9%;
 }
 
-.post_body{
+.post_body {
     display: block;
     margin: auto;
     height: 80%;
 }
 
-.post_link{
+.post_link {
     display: block;
     margin: auto;
     height: 9%;
