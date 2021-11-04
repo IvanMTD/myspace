@@ -1,7 +1,6 @@
 package ru.myspace.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +46,7 @@ public class MainController {
         }
         Optional<Post> post = postRepository.findById(id);
         Post postInfo = postRepository.findById(id).orElseThrow();
-        ArrayList<Post> res = new ArrayList();
+        ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post",res);
         model.addAttribute("title",postInfo.getTitle());
@@ -61,7 +60,7 @@ public class MainController {
         }
         Optional<Post> post = postRepository.findById(id);
         Post postInfo = postRepository.findById(id).orElseThrow();
-        ArrayList<Post> res = new ArrayList();
+        ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post",res);
         model.addAttribute("title",postInfo.getTitle());

@@ -1,5 +1,5 @@
 window.onload = function(){
-    let elem = document.getElementsByClassName("lesson");
+    let elem = document.getElementsByClassName("post");
     let size = elem.length;
     let height = elem[0].offsetHeight;
     for(let i=1; i<size; i++){
