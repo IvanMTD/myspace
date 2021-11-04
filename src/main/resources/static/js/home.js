@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function() {
     let elem = document.getElementsByClassName("post");
     let size = elem.length;
     let height = elem[0].offsetHeight;
